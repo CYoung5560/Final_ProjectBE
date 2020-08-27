@@ -1,15 +1,50 @@
 const express = require('express');
 const movieRoutes = require('./routes/movie.route');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const User = require('./models/user.model');
+const userRoutes = require('./routes/user.route');
+const LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const app = express();
 const port = process.env.PORT || 8000;
 
-// Handles routes starting with '/movie'
-app.use('/movie', movieRoutes);
-
 // Use in-built Express json parser
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+    name: 'session-id',
+    secret: '382723huh9',
+    saveUninitialized: false,
+    resave: false
+}));
+
+app.use(passport.initialize());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new JwtStrategy({
+        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+        secretOrKey: 'key3892'
+    }, (jwtPayload, callback) => {
+    return User.findById(jwtPayload.userId)
+        .then(user => {
+            return callback(null, user);
+        })
+        .catch(error => {
+            return callback(error);
+        });
+}));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Handles routes starting with '/movie'
+app.use('/movie', movieRoutes);
+app.use(userRoutes);
 
 // Configure db
 const db = 'mongodb://localhost:27017/movie-site';
