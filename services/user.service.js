@@ -19,13 +19,13 @@ exports.signup = async (username, password) => {
 
     const newUser = {
         username: username,
-        password: password
     };
 
     try {
         //if (User.findOne({ username: username })) throw Error(`Username ${username} already exists`);
         console.log(newUser);
-        const savedUser = await User.create(newUser);
+        const savedUser = await User.register(newUser, password);
+        console.log(savedUser);
         return savedUser;
     } catch(error) {
         throw Error('user.service.js -> ');
