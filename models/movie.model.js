@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 // Created a MovieSchema with mongoose.
-const movieSchema = new mongoose.Schema({
-    // 'title' property is a String.
-    title: String
+const schema = new mongoose.Schema({
+
+    title: {type: String, required: true},
+    year: {required: true},
+    description: {type: String},
+    actors: {type: String},
+    director: {type: String, required: true},
+    showingTimes: {type: mongoose.Types.ObjectId, ref: 'times'}
 });
 
 // A movie model (object) can have functions.
@@ -12,10 +17,15 @@ const movieSchema = new mongoose.Schema({
 // Useful for logging db info.
 movieSchema.methods.info = () => {
     console.log(`TITLE -> this.title`);
+	console.log(`YEAR -> this.year`);
+	console.log(`DESC -> this.description`); 
+	console.log(`ACTORS -> this.actors`); 
+	console.log(`DIRECTOR -> this.director`); 
+	console.log(`TIMES -> this.showingTimes`); 
 }
 
 // Compiled schema into a model.
-const Movie = mongoose.model('Movie', movieSchema);
+const Movie = mongoose.model('Movie', schema);
+module.export = Movie;
 
-module.exports = Movie;
 // SEE FOR MORE ON MONGOOSE 5.10: https://mongoosejs.com/docs/
