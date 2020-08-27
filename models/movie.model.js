@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
 // These are compiled onto the model prototype (ignore unless your brave ;)) and
 // exposed with each instantiated object (can be called like so: 'movieObj.info()').
 // Useful for logging db info.
-MovieSchema.methods.info = () => {
+movieSchema.methods.info = () => {
     console.log(`TITLE -> this.title`);
 	console.log(`YEAR -> this.year`);
 	console.log(`DESC -> this.description`); 
@@ -26,6 +26,6 @@ MovieSchema.methods.info = () => {
 
 // Compiled schema into a model.
 const Movie = mongoose.model('Movie', schema);
-module.export = Movie; 
+module.export = Movie;
 
 // SEE FOR MORE ON MONGOOSE 5.10: https://mongoosejs.com/docs/

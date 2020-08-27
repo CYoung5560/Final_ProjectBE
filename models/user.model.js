@@ -1,25 +1,17 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
 
-//package that checks for unique elements in the DB, run the following CMD in terminal
-//npm install mongoose-unique-validator
-const mongooseUni = require('mongoose-unique-validator');
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  role: String
+});
 
-const schema = new mongoose.Schema({
+userSchema.plugin(passportLocalMongoose);
 
-    firstName: {type: String, required: true}, 
-    lastName: {type: String, required: true},
-    password: {type: String, required: true},
-    email: {type: String, required: true, unique: true},
+const User = mongoose.model('User', userSchema, 'User');
 
-})
-
-schema.plugin(mongooseUni); //calls validator 
-
-userSchema.methods.info = () => {
-    console.log(`FIRSTNAME -> this.firstName`);
-	console.log(`LASTNAME -> this.lastName`);
-	console.log(`EMAIL -> this.email`);
-}
-
-const user = mongoose.model('user', schema);
-module.export = user; 
+module.exports = User;
