@@ -9,15 +9,15 @@ const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
+const ROLES = require('./utils/roles').ROLES;
+const checkIsInRole = require('./utils/auth').checkIsInRole;
+
 const app = express();
 const port = process.env.PORT || 8000;
 
 // Use in-built Express json parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
 
 app.use(session({
     name: 'session-id',
@@ -27,7 +27,6 @@ app.use(session({
 }));
 
 app.use(passport.initialize());
-// app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.use(new JwtStrategy({
@@ -47,7 +46,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Handles routes starting with '/movie'
-app.use('/movie', passport.authenticate('jwt', { session: false }), movieRoutes);
+app.use('/movie', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Customer), movieRoutes);
 app.use(userRoutes);
 
 // Configure db
