@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'); 
 
-const schema = new mongoose.Schema({
+const timesSchema = new mongoose.Schema({
 
     year: {type: int, required: true},
     month: {type: int, required: true},

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 //npm install mongoose-unique-validator
 const mongooseUni = require('mongoose-unique-validator');
 
-const schema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
 
     firstName: {type: String, required: true}, 
     lastName: {type: String, required: true},
