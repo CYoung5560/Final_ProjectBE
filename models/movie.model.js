@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-// Created a MovieSchema with mongoose.
 const schema = new mongoose.Schema({
 
     title: {type: String, required: true},
-    year: {required: true},
+    year: {type: int, required: true},
     description: {type: String},
     actors: {type: String},
     director: {type: String, required: true},
-    showingTimes: {type: mongoose.Types.ObjectId, ref: 'times'}
+    showingTimes: [{type: mongoose.Types.ObjectId, ref: 'times'}]
 });
 
 // A movie model (object) can have functions.
