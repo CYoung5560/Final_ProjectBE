@@ -1,6 +1,9 @@
 const express = require('express');
+const passport = require('passport');
 
 const MovieController = require('../controllers/movie.controller');
+const ROLES = require('../utils/roles').ROLES;
+const checkIsInRole = require('../utils/auth').checkIsInRole;
 
 const router = express.Router();
 
@@ -23,7 +26,7 @@ router.param('/:id', (request, response, next) => {
 
 // The routes will need to be modified to reflect using the request body at some point.
 // Pass control (via callback) to MovieController.
-router.get('/:id', MovieController.getMovieById);
+router.get('/:id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Customer), MovieController.getMovieById);
 
 router.post('/:title', MovieController.createMovie);
 
