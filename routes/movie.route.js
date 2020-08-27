@@ -16,18 +16,18 @@ router.use((request, response, next) => {
 });
 
 // Middleware to validate a route
-router.param('/:id', (request, response, next) => {
-    // do some validation.
-    console.log(`Validating ${request.url}`);
-    // Once validation is done, save new item in request.
-    // go to next thing (/:id route).
-    next();
-});
+// router.param('/:id', (request, response, next) => {
+//     // do some validation.
+//     console.log(`Validating ${request.url}`);
+//     // Once validation is done, save new item in request.
+//     // go to next thing (/:id route).
+//     next();
+// });
 
 // The routes will need to be modified to reflect using the request body at some point.
 // Pass control (via callback) to MovieController.
-router.get('/:id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Customer), MovieController.getMovieById);
+router.get('/:id', MovieController.getMovieById);
 
-router.post('/:title', MovieController.createMovie);
+router.post('/', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
 
 module.exports = router;
