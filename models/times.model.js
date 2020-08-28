@@ -19,4 +19,4 @@ timesSchema.methods.info = () => {
 }
 
 const times = mongoose.model('times', timesSchema); 
-module.export = times;
+module.exports = times;
