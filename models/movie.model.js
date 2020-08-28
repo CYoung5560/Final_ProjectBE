@@ -25,6 +25,6 @@ movieSchema.methods.info = () => {
 
 // Compiled schema into a model.
 const Movie = mongoose.model('Movie', movieSchema);
-module.export = Movie;
+module.exports = Movie;
 
 // SEE FOR MORE ON MONGOOSE 5.10: https://mongoosejs.com/docs/
