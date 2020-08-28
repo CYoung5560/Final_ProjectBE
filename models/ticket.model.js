@@ -17,4 +17,4 @@ ticketSchema.methods.info = () => {
 };
 
 const tickets = mongoose.model('times', schema); 
-module.export = tickets;
+module.exports = tickets;
