@@ -11,4 +11,7 @@ router.use((request, response, next) => {
     next();
 });
 
-router.get('', TicketController.getTicket);
+router.get('', passport.authenticate('jwt', { session: false }), TicketController.getTicket);
+router.post('', passport.authenticate('jwt', { session: false }), TicketController.createTicket);
+router.put('', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), TicketController.updateTicket);
+router.delete('', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), TicketController.deleteTicket);
