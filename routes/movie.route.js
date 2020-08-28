@@ -11,6 +11,7 @@ const router = express.Router();
 router.use((request, response, next) => {
     // Log request to console.
     console.log(request.method, `movie${request.url}`);
+    //console.log(request);
     // continue onto requested route.
     next();
 });

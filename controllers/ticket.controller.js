@@ -3,6 +3,7 @@ const TicketService = require('../services/ticket.service');
 exports.getTicket = async (request, response, next) => {
 
     try {
+        console.log(request.user._id);
         const ticket = await TicketService.getTicket(request.body.id);
         return response.status(200).json({ status: 200, data: ticket, message: "ticket.controller -> Successfully got ticket from db" });
     } catch(error) {
@@ -13,7 +14,7 @@ exports.getTicket = async (request, response, next) => {
 exports.createTicket = async (request, response, next) => {
 
     try {
-        const ticket = await TicketService.createTicket(request.body);
+        const ticket = await TicketService.createTicket(request.user._id, request.body);
         return response.status(200).json({ status: 200, data: ticket, message: "ticket.controller -> Successfully created ticket in db" });
     } catch(error) {
         return response.status(400).json({ status: 400, message: error.message });
