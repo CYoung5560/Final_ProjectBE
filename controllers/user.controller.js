@@ -1,11 +1,32 @@
 const UserService = require('../services/user.service');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
 exports.login = async (request, response, next) => {
 
     // Validation of request params
     try {
-        const { user, token } = UserService.login(request, response);
-        return response.status(200).json({ status: 200, success: true, data: { user: user }, message: "user.controller -> login success", token: token });
+        await passport.authenticate('local', { session: false }, (error, user, info) => {
+            console.log(user);
+            console.log(error);
+            if (error) {
+                return next(error);
+            }
+
+            if (!user) {
+                return next(error);
+            }
+
+            request.logIn(user, { session: false }, (error) => {
+                if (error) {
+                    return next(error);
+                }
+                const token = jwt.sign({ userId: user._id, username: user.username }, 'key3892', { expiresIn: '24h' });
+                console.log(token);
+                // return { user, token };
+                return response.status(200).json({ status: 200, success: true, data: { user: user }, message: "user.controller -> login success", token: token });
+            });
+        })(request, response, next);  // 
     } catch (error) {
         return response.status(400).json({ status: 400, message: error.message });
     }
