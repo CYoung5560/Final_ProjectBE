@@ -14,8 +14,7 @@ ticketSchema.methods.info = () => {
 	console.log(`SCREENING -> this.screening`);
 	console.log(`BOOKER -> this.booker`);
 	console.log(`CONCESSION -> this.concession`);
-	console.log(`MINUTE -> this.minute`); 
 }
 
-const tickets = mongoose.model('times', schema); 
+const tickets = mongoose.model('times', ticketSchema); 
 module.exports = tickets;
