@@ -10,12 +10,14 @@ exports.getMovieById = async (id) => {
     }
 };
 
-exports.createMovie = async (title) => {
-
+exports.createMovie = async (movie) => {
+    console.log(movie);
     try {
-        const movie = await Movie.create({ title: title });
-        return movie;
+        const newMovie = await Movie.create({ "title": movie.title, "year": movie.year, "director": movie.director });
+        console.log(newMovie);
+        return newMovie;
     } catch(error) {
+        console.log(error);
         throw Error('movie.service.js -> Error creating movie');
     }
 };
