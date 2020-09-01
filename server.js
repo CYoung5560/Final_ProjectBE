@@ -5,6 +5,7 @@ const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -18,6 +19,8 @@ const ticketRoutes = require('./routes/ticket.route');
 // Use in-built Express json parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors());
 
 app.use(session({
     name: 'session-id',
