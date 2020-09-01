@@ -4,8 +4,9 @@ const ticketSchema = new mongoose.Schema({
 
 	movieTitle: {type: mongoose.Types.ObjectId, ref: 'movie'},
 	screening: {type: mongoose.Types.ObjectId, ref: 'times'},
-	booker: {type: mongoose.Types.ObjectId, ref: 'User'},
-	concession: {type: mongoose.Types.ObjectId, ref: 'concession'}
+	booker: {type: mongoose.Types.ObjectId, ref: 'user'},
+	concession: {type: mongoose.Types.ObjectId, ref: 'concession'},
+
 });
 
 ticketSchema.methods.info = () => {
