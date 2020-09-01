@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const NumberInt = require('mongoose-int32');
 
 const movieSchema = new mongoose.Schema({
 
     title: {type: String, required: true},
-    year: {type: NumberInt, required: true},
+    year: {type: Number, required: true},
     description: {type: String},
     actors: {type: String},
     director: {type: String, required: true},
@@ -25,7 +24,7 @@ movieSchema.methods.info = () => {
 }
 
 // Compiled schema into a model.
-const Movie = mongoose.model('Movie', schema);
+const Movie = mongoose.model('Movie', movieSchema);
 module.exports = Movie;
 
 // SEE FOR MORE ON MONGOOSE 5.10: https://mongoosejs.com/docs/

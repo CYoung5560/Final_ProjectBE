@@ -18,5 +18,5 @@ timesSchema.methods.info = () => {
 	console.log(`MIN -> this.minute`); 
 }
 
-const times = mongoose.model('times', schema); 
+const times = mongoose.model('times', timesSchema); 
 module.exports = times;

@@ -26,7 +26,8 @@ router.param('/:id', (request, response, next) => {
 
 // The routes will need to be modified to reflect using the request body at some point.
 // Pass control (via callback) to MovieController.
-router.get('/:id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Customer), MovieController.getMovieById);
+router.get('/:id', passport.authenticate('jwt', { session: false }), 
+checkIsInRole(ROLES.Customer), MovieController.getMovieById);
 
 router.post('/:title', MovieController.createMovie);
 
