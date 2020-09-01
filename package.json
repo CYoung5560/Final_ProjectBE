@@ -30,6 +30,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
-    "s": "^1.0.0"
+    "s": "^1.0.0",
+    "stripe": "^8.91.0"
   }
 }
