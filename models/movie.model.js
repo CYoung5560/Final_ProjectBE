@@ -7,7 +7,8 @@ const movieSchema = new mongoose.Schema({
     description: {type: String},
     actors: {type: String},
     director: {type: String, required: true},
-    showingTimes: [{type: mongoose.Types.ObjectId, ref: 'times'}]
+    showingTimes: [{type: mongoose.Types.ObjectId, ref: 'times'}],
+    imdb: {type: String}, 
 });
 
 // A movie model (object) can have functions.
@@ -20,7 +21,8 @@ movieSchema.methods.info = () => {
 	console.log(`DESC -> this.description`); 
 	console.log(`ACTORS -> this.actors`); 
 	console.log(`DIRECTOR -> this.director`); 
-	console.log(`TIMES -> this.showingTimes`); 
+    console.log(`TIMES -> this.showingTimes`); 
+    console.log(`IMDB -> this.imdb`)
 }
 
 // Compiled schema into a model.

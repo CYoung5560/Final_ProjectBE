@@ -12,6 +12,17 @@ exports.getMovieById = async (request, response, next) => {
     }
 };
 
+exports.getMovieByTitle = async (request, response, next) => {
+    // Validation of request params
+    try {
+        // Pass control to MovieService
+        const movie = await MovieService.getMovieByTitle(request.params.title);
+        return response.status(200).json({ status: 200, data: movie, message: "movie.controller -> Successfully retrieved movie by id"});
+    } catch(error) {
+        return response.status(400).json({ status: 400, message: error.message });
+    }
+};
+
 exports.createMovie = async (request, response, next) => {
 
     try {
@@ -21,3 +32,12 @@ exports.createMovie = async (request, response, next) => {
         return response.status(400).json({ status: 400, message: error.message });
     }
 };
+
+exports.deleteMovie = async (request, response, next) => {
+    try{
+        const movie = await MovieService.deleteMovie(request.body)
+        return response.status(200).json({status: 200, data: movie, message: "movie.controller -> Successfully deleted entry"})
+    } catch(error) {
+        return response.status(400).json({status:400, message: error.message});
+    }
+}

@@ -1,0 +1,36 @@
+//movie
+{
+	"title":"",
+	"year": ,
+	"description": "",
+	"actors": "", 
+	"directors": "", 
+	"showingTimes": [
+		{
+		"year":2020,
+		"month": ,
+		"day": ,
+		"time": ,
+		}
+		{
+		"year":2020,
+		"month": ,
+		"day": ,
+		"time": ,
+		}
+		{
+		"year":2020,
+		"month": ,
+		"day": ,
+		"time": ,
+		}
+	]
+	"imdb": "",
+}
+//showingTimes
+{
+		"year":2020,
+		"month": ,
+		"day": ,
+		"time": ,
+}

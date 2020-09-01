@@ -1,0 +1,203 @@
+[
+	{
+	"title":"The Goonies",
+	"year": 1985,
+	"description": "Adventure Comedy. Facing foreclosure of their homes in the Goon Docks area of Astoria, Oregon to an expanding country club, 
+	a group of children who call themselves "the Goonies" gather for a final weekend together.",
+	"actors": "Sean Astin, Josh Brolin, etc",
+	"directors": "Richard Donner",
+	"showingTimes": [
+		{
+		"year":2020,
+		"month":10,
+		"day":01,
+		"time":1100,
+		}
+		{
+		"year":2020,
+		"month":10,
+		"day":01,
+		"time":1200,
+		}
+		{
+		"year":2020,
+		"month":10,
+		"day":01,
+		"time":1300,
+		}
+	],
+	"imdb": "https://www.imdb.com/title/tt0089218/",
+	}
+	
+	{
+	"title":"Gremlins",
+	"year": 1984,
+	"description": "Comedy Horror. A boy inadvertently breaks three important rules concerning his new pet and unleashes a horde of malevolently mischievous monsters on a small town.",
+	"actors": "Zach Galligan, Phoebe Cates, etc", 
+	"directors": "Joe Dante",
+	"showingTimes": [
+		{
+		"year":2020, 
+		"month": 10,
+		"day": 01,
+		"time":1400,
+		}		
+		{
+		"year":2020, 
+		"month": 10,
+		"day": 01,
+		"time":1500,
+		}
+		{
+		"year":2020, 
+		"month": 10,
+		"day": 01,
+		"time":1600,
+		}
+	],
+	"imdb": "https://www.imdb.com/title/tt0087363/",
+	}
+	
+	{
+	"title":"Ghostbusters",
+	"year": 1984,
+	"description": "Comedy Horror. Three former parapsychology professors set up shop as a unique ghost removal service.",
+	"actors": "Bill Murray, Dan Aykroyd, Sigourney Weaver", 
+	"directors": "Ivan Reitman", 
+	"showingTimes": [
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1700,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1800,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1900,
+		}
+	]
+	"imdb": "https://www.imdb.com/title/tt0087332/",
+	}
+	{
+	"title": "Sea Fever",
+	"year": 2019,
+	"description": "Sci-fi Horror. The crew of a West of Ireland trawler, marooned at sea, struggle for their lives against a growing parasite in their water supply. "
+	"actors": "Hermione Corfield, Dag Malmberg, Jack Hickey",
+	"directors": "Neasa Hardiman",
+	"showingTimes": [
+		{
+		"year":2020,
+		"month": 10 ,
+		"day": 01,
+		"time": 1000,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1100,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1200,
+		}
+	]
+	"imdb": "https://www.imdb.com/title/tt2716382/",
+	}
+	{
+	"title":"Hellraiser",
+	"year": 1987,
+	"description": "Horror Thriller. An unfaithful wife encounters the zombie of her dead lover; the demonic cenobites are pursuing him after he escaped their sadomasochistic underworld.",
+	"actors": "Andrew Robinson, Clare Higgins, Ashley Laurence", 
+	"directors": "Clive Barker", 
+	"showingTimes": [
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1300,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1400,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1500,
+		}
+	]
+	"imdb": "https://www.imdb.com/title/tt0093177/",
+	}
+
+	{
+	"title":"Howl's Moving Castle",
+	"year": 2004,
+	"description": "When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle. ",
+	"actors": "Cheiko Baisho, Takuya Kimura, Tatsuya Gashuin", 
+	"directors": "Hayao Miyazaki", 
+	"showingTimes": [
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1600,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1700,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1800,
+		}
+	]
+	"imdb": "https://www.imdb.com/title/tt0347149/",
+	}
+
+	{
+	"title":"Spirited Away",
+	"year": 2001,
+	"description": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts. ",
+	"actors": "Daveigh Chase, Suzanne Pleshette, Miyu Irino", 
+	"directors": "Hayao Miyazaki", 
+	"showingTimes": [
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 1900,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 2000,
+		}
+		{
+		"year":2020,
+		"month": 10,
+		"day": 01,
+		"time": 2100,
+		}
+	]
+	"imdb": "",
+	}
+]
