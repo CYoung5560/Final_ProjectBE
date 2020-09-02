@@ -12,7 +12,7 @@ const router = express.Router();
 router.post('/payment', passport.authenticate('jwt', { session: false }), async (request, response) => {
     // calculate the cost in on the backend (here) and assign to 'amount' within the intent
     let concession = request.body.concession
-    concession = concession.charAt(0).toUpperCase() + concession.slice(1);
+    // concession = concession.charAt(0).toUpperCase() + concession.slice(1);
 
     let price = 0;
     let conObj = Concession.findOne({ concession: concession }).exec(); // returns a query result
