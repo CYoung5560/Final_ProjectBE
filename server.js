@@ -15,6 +15,8 @@ const User = require('./models/user.model');
 const userRoutes = require('./routes/user.route');
 const movieRoutes = require('./routes/movie.route');
 const ticketRoutes = require('./routes/ticket.route');
+const paymentRoutes = require('./routes/payment.route');
+const concessionRoutes = require('./routes/concession.route');
 
 // Use in-built Express json parser
 app.use(express.json());
@@ -51,7 +53,9 @@ passport.deserializeUser(User.deserializeUser());
 // Handles routes starting with '/movie'
 app.use('/ticket', ticketRoutes);
 app.use('/movie', movieRoutes);
+app.use('/concession', concessionRoutes);
 app.use(userRoutes);
+app.use(paymentRoutes);
 
 // Configure db
 const db = 'mongodb://localhost:27017/movie-site';
