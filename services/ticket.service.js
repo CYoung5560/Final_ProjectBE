@@ -12,6 +12,7 @@ exports.getTicket = async (id) => {
         // Conv obj ids to human-readable form
         const readableTicket = {};
         readableTicket._id = ticket._id;
+        readableTicket.transId = ticket.transId;
         readableTicket.movie = await Movie.findById(ticket.movieTitle);
         readableTicket.booker = await User.findById(ticket.booker);
         readableTicket.concession = await Concession.findById(ticket.concession);
@@ -42,6 +43,7 @@ exports.createTicket = async (userId, ticket) => {
 
         const readableTicket = {};
         readableTicket._id = newTicket._id;
+        readableTicket.transId = newTicket.transId;
         readableTicket.movie = await Movie.findById(newTicket.movieTitle);
         readableTicket.booker = await User.findById(newTicket.booker);
         readableTicket.concession = await Concession.findById(newTicket.concession);
@@ -69,6 +71,7 @@ exports.updateTicket = async (ticket) => {
         
         const readableTicket = {};
         readableTicket._id = updatedTicket._id;
+        readableTicket.transId = updatedTicket.transId;
         readableTicket.movie = await Movie.findById(updatedTicket.movieTitle);
         readableTicket.booker = await User.findById(updatedTicket.booker);
         readableTicket.concession = await Concession.findById(updatedTicket.concession);
