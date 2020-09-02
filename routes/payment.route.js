@@ -5,17 +5,31 @@ const stripe = require('stripe')('sk_test_51HMY0fEd3ZxUQOxhVfOIE2hs0yFYQqVF8c2FK
 const ROLES = require('../utils/roles').ROLES;
 const checkIsInRole = require('../utils/auth').checkIsInRole;
 
+const Concession = require('../models/concession.model');
+
 const router = express.Router();
 
 router.post('/payment', passport.authenticate('jwt', { session: false }), async (request, response) => {
     // calculate the cost in on the backend (here) and assign to 'amount' within the intent
-    const paymentIntent = await stripe.paymentIntents.create({
-        amount: 10 * 100, // £1.00
-        currency: 'gbp',
-        metadata: { integration_check: 'accept_a_payment' }
-    });
+    let concession = request.body.concession
+    concession = concession.charAt(0).toUpperCase() + concession.slice(1);
 
-    response.json({ client_secret: paymentIntent.client_secret, user: request.user.username });
+    let price = 0;
+    let conObj = Concession.findOne({ concession: concession }).exec(); // returns a query result
+    conObj.then(async (document) => { // grab doc out of result
+        price = document.price;
+        console.log(`Payment processing for price £${price}, concession ${document.concession}`);
+
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: (10 * 10 * price), // £1.00 = 10 * 10
+            currency: 'gbp',
+            metadata: { integration_check: 'accept_a_payment' }
+        });
+        console.log('Payment request processed, sending secret');
+        response.json({ client_secret: paymentIntent.client_secret, user: request.user.username });
+    }).catch(error => {
+        response.status(404);
+    });
 });
 
 module.exports = router;
