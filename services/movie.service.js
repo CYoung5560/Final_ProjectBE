@@ -32,11 +32,20 @@ exports.createMovie = async (movie) => {
 };
 
 exports.deleteMovie = async (id) => {
-    try {
         try {
-            const movie = await Movie.findByIdAndDelete(id); //not in scope? 
+            const movie = await Movie.findByIdAndDelete(id); 
         } catch(error) {
+            console.log(error);
             throw Error('movie.service.js -> Error deleting movie');
         }
-}};
+};
 
+exports.updateMovie = async (id, movie) => {
+    try {
+        const movie = await Movie.findByIdAndUpdate(id, { "title": movie.title, "year": movie.year, "description": movie.description, 
+        "actors": movie.actors, "director": movie.director, "imdb": movie.imdb});
+    } catch(error) {
+        console.log(error);
+        throw Error('movie.service.js -> Error updating movie');
+    }
+}
