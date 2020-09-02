@@ -17,13 +17,13 @@ const movieSchema = new mongoose.Schema({
 // exposed with each instantiated object (can be called like so: 'movieObj.info()').
 // Useful for logging db info.
 movieSchema.methods.info = () => {
-    console.log(`TITLE -> this.title`);
-	console.log(`YEAR -> this.year`);
-	console.log(`DESC -> this.description`); 
-	console.log(`ACTORS -> this.actors`); 
-	console.log(`DIRECTOR -> this.director`); 
-    console.log(`TIMES -> this.showingTimes`); 
-    console.log(`IMDB -> this.imdb`)
+    console.log(`TITLE -> ${this.title}`);
+	console.log(`YEAR -> ${this.year}`);
+	console.log(`DESC -> ${this.description}`); 
+	console.log(`ACTORS -> ${this.actors}`); 
+	console.log(`DIRECTOR -> ${this.director}`); 
+    console.log(`TIMES -> ${this.showingTimes}`); 
+    console.log(`IMDB -> ${this.imdb}`)
 }
 
 // Compiled schema into a model.

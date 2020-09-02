@@ -34,14 +34,9 @@ exports.createMovie = async (movie) => {
 exports.deleteMovie = async (id) => {
     try {
         try {
-            const movie = await Movie.findById(id); //not in scope? 
+            const movie = await Movie.findByIdAndDelete(id); //not in scope? 
         } catch(error) {
-            throw Error('movie.service.js -> Error finding movie by id');
+            throw Error('movie.service.js -> Error deleting movie');
         }
-        await movie.deleteOne(movie);
-    } catch(error) {
-        console.log(error); 
-        throw Error('movie.service.js -> Error deleting movie');
-    }
-};
+}};
 

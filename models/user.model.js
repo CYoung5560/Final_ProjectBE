@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
   role: String
 });
 
+userSchema.methods.info =() => {
+  console.log(`User -> ${username}`);
+  console.log(`Role -> ${role}`);
+}
+
 userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', userSchema, 'User');

@@ -10,10 +10,10 @@ const timesSchema = new mongoose.Schema({
 })
 
 timesSchema.methods.info = () => {
-    console.log(`YEAR -> this.year`);
-	console.log(`MONTH -> this.month`);
-	console.log(`DAY -> this.day`);
-	console.log(`TIME -> this.time`); 
+    console.log(`YEAR -> ${this.year}`);
+	console.log(`MONTH -> ${this.month}`);
+	console.log(`DAY -> ${this.day}`);
+	console.log(`TIME -> ${this.time}`); 
 }
 
 const times = mongoose.model('times', timesSchema); 
