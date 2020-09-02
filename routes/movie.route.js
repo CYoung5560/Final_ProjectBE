@@ -35,7 +35,7 @@ router.get('/:title', passport.authenticate('jwt', { session: false }), checkIsI
 router.post('/', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
 
 //EDIT
-router.put('/id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
+router.put('/id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.updateMovie);
 
 //DELETE
 router.delete('/id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
