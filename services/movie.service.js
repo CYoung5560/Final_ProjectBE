@@ -11,7 +11,7 @@ exports.getMovieById = async (id) => {
 
 exports.getMovieByTitle = async (title) => {
     try {
-        const movie = await Movie.findByOne({title: title});
+        const movie = await Movie.findOne({title: title});
         return movie;
     } catch(error) {
         throw Error('movie.service.js -> Error finding movie by title');
