@@ -1,0 +1,18 @@
+[
+    {
+        "concession": "Adult", 
+        "price": 10,
+    }
+    {
+        "concession": "Child", 
+        "price": 7,
+    }
+    {
+        "concession": "Student", 
+        "price": 6, 
+    }
+    {
+        "concession": "Pensioner",
+        "price": 6,
+    }
+]

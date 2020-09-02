@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
 
+    //gridfs image storage 
     title: {type: String, required: true},
     year: {type: Number, required: true},
     description: {type: String},

@@ -34,3 +34,8 @@
 		"day": ,
 		"time": ,
 }
+//concAPI 
+{
+	"concession": "",
+	"price": , 
+}
