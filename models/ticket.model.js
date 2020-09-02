@@ -4,7 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const ticketSchema = new mongoose.Schema({
 
 	movieTitle: {type: mongoose.Types.ObjectId, ref: 'movie'},
-	screening: {type: mongoose.Types.ObjectId, ref: 'times'},
+	screening: {type: mongoose.Types.ObjectId, ref: 'times'}, 
 	booker: {type: mongoose.Types.ObjectId, ref: 'user'},
 	concession: {type: mongoose.Types.ObjectId, ref: 'concession'},
 	transId: {type: String, unique: true}

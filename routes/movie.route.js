@@ -26,9 +26,18 @@ router.use((request, response, next) => {
 // });
 
 // The routes will need to be modified to reflect using the request body at some point.
-// Pass control (via callback) to MovieController.
-router.get('/:id', MovieController.getMovieById);
+// Pass control (via callback) to MovieController. 
+//READ
+router.get('/:id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Customer), MovieController.getMovieById);
+router.get('/:title', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Customer), MovieController.getMovieByTitle);
 
+//CREATE
 router.post('/', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
+
+//EDIT
+router.put('/id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
+
+//DELETE
+router.delete('/id', passport.authenticate('jwt', { session: false }), checkIsInRole(ROLES.Admin), MovieController.createMovie);
 
 module.exports = router;
